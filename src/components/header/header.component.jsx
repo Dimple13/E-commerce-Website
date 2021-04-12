@@ -5,7 +5,7 @@ import {selectCartHidden} from '../../redux/cart/cart.selectors';
 import {selectCurrentUser} from '../../redux/user/user.selectors';
 import CartIcon from '../cart-icon/cart-icon.component.jsx';
 import {ReactComponent as Logo} from '../../assets/crown.svg'
-import {HeaderContainer,LogoContainer,OptionsContainer,OptionLink,OptionDiv} from './header.styles.jsx';
+import {HeaderContainer,LogoContainer,OptionsContainer,OptionLink} from './header.styles.jsx';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import {auth} from '../../firebase/firebase.utils';
 const Header=({currentUser,hidden})=>(
@@ -22,7 +22,7 @@ const Header=({currentUser,hidden})=>(
             </OptionLink>
             {
                 currentUser?
-                <OptionDiv onClick={()=>auth.signOut()}>SIGN OUT</OptionDiv>
+                <OptionLink as='div' onClick={()=>auth.signOut()}>SIGN OUT</OptionLink>
                 :
                 <OptionLink to='/signin'>SIGN IN</OptionLink>
             }
